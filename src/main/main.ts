@@ -14,6 +14,7 @@ import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
+import fs from 'fs'
 
 class AppUpdater {
   constructor() {
@@ -29,6 +30,12 @@ ipcMain.on('ipc-example', async (event, arg) => {
   const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
   console.log(msgTemplate(arg));
   event.reply('ipc-example', msgTemplate('pong'));
+});
+
+ipcMain.on("saveData", (sender, data) => {
+ 
+ let sData = JSON.stringify(data);
+  fs.writeFileSync("data/data.json", sData);
 });
 
 if (process.env.NODE_ENV === 'production') {
@@ -124,6 +131,12 @@ app.on('window-all-closed', () => {
   }
 });
 
+//Global exception handler
+process.on("uncaughtException", function (err) {
+  console.log(err);
+});
+
+
 app
   .whenReady()
   .then(() => {
@@ -133,5 +146,16 @@ app
       // dock icon is clicked and there are no other windows open.
       if (mainWindow === null) createWindow();
     });
+
+    //Read the data
+  let res = fs.existsSync("data/data.json");
+  console.log(res);
+  if (res) {
+    let dt = fs.readFileSync("data/data.json");
+    let data = JSON.parse(dt);
+    console.log(data);
+  }
+
+
   })
   .catch(console.log);
