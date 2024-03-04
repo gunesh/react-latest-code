@@ -2,7 +2,7 @@ import React, {  createContext } from "react";
 import templateConfig from '../templateConfig';
 // import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 const AppContext = createContext({});
-const user = JSON.parse(window.localStorage.getItem("user") || '');
+const user = JSON.parse(window.localStorage.getItem("user") || "{}");
 
 
 class AppProvider extends React.Component<any, any> {

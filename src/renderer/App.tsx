@@ -25,10 +25,8 @@ function Hello() {
 
 export default function App() {
   return (
-    <Router>
-      <Routes>
+    <Routes>
         <Route path="/" element={<Hello />} />
       </Routes>
-    </Router>
   );
 }
