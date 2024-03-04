@@ -1,16 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.scss';
-import { Example } from './Examples/AddFriendForm';
+// import { Example } from './Examples/AddFriendForm';
 import AppRoute from './utility/route';
 import 'bootstrap/dist/css/bootstrap.min.css';
-const Login = React.lazy(() => import("./views/Login"));
+// const Login = React.lazy(() => import("./views/Login"));
 
 
 function App() {
   return (
     <div className="App">
-      ASAS
+      
       {/* <Login /> */}
       <AppRoute />
       {/* <Example /> */}

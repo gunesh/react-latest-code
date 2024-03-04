@@ -16,7 +16,7 @@ function Layout() {
 
             <ul>
                 <li>
-                    <Link to="/">Public Page</Link>
+                    <Link to="/">Public Pageggg</Link>
                 </li>
                 <li>
                     <Link to="/protected">Protected Page</Link>
