@@ -12,8 +12,6 @@ import {
 function Layout() {
     return (
         <div>
-
-
             <ul>
                 <li>
                     <Link to="/">Public Pageggg</Link>
