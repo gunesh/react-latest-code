@@ -119,7 +119,6 @@ const createWindow = async () => {
   new AppUpdater();
 };
 
-
 /**
  * Add event listeners...
  */

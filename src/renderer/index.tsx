@@ -10,17 +10,15 @@ import App from './App';
 
 const container = document.getElementById('root') as HTMLElement;
 const root = createRoot(container);
-root.render(<BrowserRouter>
-  <Provider store={store}>
-    <React.StrictMode>
-    <Suspense fallback='Loading...'>
-      <AppProvider>
-        <App />
-      </AppProvider>
-      </Suspense>
-    </React.StrictMode>
-  </Provider>
-</BrowserRouter>);
+root.render(<Provider store={store}>
+  <React.StrictMode>
+  <Suspense fallback='Loading...'>
+    <AppProvider>
+      <App />
+    </AppProvider>
+    </Suspense>
+  </React.StrictMode>
+</Provider>);
 
 // calling IPC exposed from preload script
 window.electron.ipcRenderer.once('ipc-example', (arg) => {
